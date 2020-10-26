@@ -1,5 +1,9 @@
 # Netty Reading Project（Netty源代码阅读项目）
 
+Unix下的IO模型
+
+IO调用会涉及到用户空间和内核空间之间的交互。发送数据时，应用程序会将数据从用户空间拷贝到内核空间，再由内核执行发送动作。当接收数据时，则需要等内核将数据准备好之后再从内核空间拷贝到用户空间。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links

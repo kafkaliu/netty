@@ -10,6 +10,11 @@ IO调用会涉及到用户空间和内核空间之间的交互。发送数据时
 4. 信号驱动I/O：比较像非阻塞式I/O，只是在套接字上注册了信号调用方法，注册完之后就返回。当内核准备好数据后，就会给进程发送信号。进程就可以读取数据了。
 5. 异步I/O：通过系统调用，向内核注册异步回调函数。当内核收到数据，并将数据从内存复制到用户空间后，再依据注册的方法通知进程。与信号I/O的最大差别是，信号I/O是通知应用数据已经可以读取了，而异步I/O是通知应用程序数据已经读取完毕了。
 
+前四种模型主要区别在第一阶段，第二阶段都是一样的，数据从内核复制到用户空间期间，进程阻塞在recvfrom调用。第五种异步I/O在这两个阶段都要处理。
+POSIX定义同步I/O和异步I/O。
+同步I/O导致请求进程阻塞，直到I/O完成。
+异步I/O不导致请求进程阻塞。从这个角度说，阻塞式I/O、非阻塞式I/O、I/O复用和信号驱动式都是同步I/O模型，因为其中真正的I/O操作recvfrom将阻塞进程。只有异步I/O模型与POSIX定义的I/O相匹配。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links

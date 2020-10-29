@@ -15,6 +15,14 @@ POSIX定义同步I/O和异步I/O。
 同步I/O导致请求进程阻塞，直到I/O完成。
 异步I/O不导致请求进程阻塞。从这个角度说，阻塞式I/O、非阻塞式I/O、I/O复用和信号驱动式都是同步I/O模型，因为其中真正的I/O操作recvfrom将阻塞进程。只有异步I/O模型与POSIX定义的I/O相匹配。
 
+在 NIO 中应用多线程，主要有三种思路：
+
+思路一：只有一个选择器，把选择键的处理动作以任务的形式投放到线程池中处理。
+
+思路二：多个选择器，每一个选择器搭配一个线程，并且在自身的线程中死循环等待事件发生以及处理事件。
+
+思路三：思路二的变种，区分 2 组选择器，一组选择器专门用于服务端通道，用于客户端链接的接入；一组选择器专门用于客户端通道，用于客户端通道的数据读写。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links

@@ -23,6 +23,8 @@ POSIX定义同步I/O和异步I/O。
 
 思路三：思路二的变种，区分 2 组选择器，一组选择器专门用于服务端通道，用于客户端链接的接入；一组选择器专门用于客户端通道，用于客户端通道的数据读写。
 
+Java在1.7版本中为我们带来了异步IO的支持。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links

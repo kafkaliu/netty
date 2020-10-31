@@ -25,6 +25,8 @@ POSIX定义同步I/O和异步I/O。
 
 Java在1.7版本中为我们带来了异步IO的支持。
 
+I/O事件有两种触发方式，一种是水平触发，第二是边缘触发。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links

@@ -27,6 +27,19 @@ Java在1.7版本中为我们带来了异步IO的支持。
 
 I/O事件有两种触发方式，一种是水平触发，第二是边缘触发。
 
+内容来自深入浅出学 Netty
+ByteBuffer有两个具体的实现类，DirectByteBuffer和HeapByteBuffer，最大的区别就是两个实现类其内部二进制数据存储在不同的空间。后面再来细说这二者的区别，现在首先说一下ByteBuffer的使用方式。
+
+为了方便理解，可以将ByteBuffer看成是一个字节数组。但是除了存储区域外，ByteBuffer 还有额外的三个属性：
+
+capacity：ByteBuffer的容量，在ByteBuffer初始化后就不会改变
+position：ByteBuffer的位置，或者说读写开始的下标。
+limit：ByteBuffer的position的终点，或者说position的增长不能超出limit。
+
+执行任意的读写操作的时候都会将 Position 增加对应的长度。比如一个int是 4 个字节构成，则写入到ByteBuffer中时就会从position位置开始写入，并且写入完成后position的值会增加 4，形象的说的就是向右移动 4 个字节；读取也是同理，如果从ByteBuffer中读取一个int，也是从position位置开始，读取 4 个字节拼装成int，并且position向右移动 4 位，或者说position的值增加 4。
+
+在ByteBuffer初始化后，position的值为 0，limit的值和capacity值相同，都等于整个ByteBuffer的容量。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links

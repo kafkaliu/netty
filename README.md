@@ -40,6 +40,8 @@ limit：ByteBuffer的position的终点，或者说position的增长不能超出l
 
 在ByteBuffer初始化后，position的值为 0，limit的值和capacity值相同，都等于整个ByteBuffer的容量。
 
+TCP产生粘包拆包的本质原因是TCP是传输层协议，无从感知应用层的数据分包。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links

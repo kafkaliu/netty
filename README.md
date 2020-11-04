@@ -44,6 +44,8 @@ TCP产生粘包拆包的本质原因是TCP是传输层协议，无从感知应�
 
 在 Netty 中有一个设计原则就是避免对一个通道的并发操作，甚至于避免对一个通道上的一个具体的Channelhandler的并发操作。
 
+Netty源代码学习。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links

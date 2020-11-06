@@ -48,6 +48,8 @@ Netty源代码学习。
 
 Netty学习IO。
 
+Netty的线程模型：Reactor 模型是一种事件处理模式。用于一个或者多个客户端并发发送服务请求到应用程序的场景。每个服务请求可能会有多个方法组成，那么 Reactor 会将请求服务服务并发的分发给对应的事件处理器来进行出来。
+
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
 ## Links
